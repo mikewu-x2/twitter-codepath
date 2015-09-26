@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    User *user = self.tweet.user;
+    User *user = [User currentUser];
     [self.profileImage setImageWithURL:[NSURL URLWithString:user.profileImageUrl]];
     self.usernameLabel.text = user.name;
     self.userHandleLabel.text = user.screenname;
