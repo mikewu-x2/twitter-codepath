@@ -41,6 +41,10 @@
         } else {
             self.retweet = nil;
         }
+        
+        self.isUserFave = [dictionary[@"favorited"] boolValue];
+        self.isUserRetweet = [dictionary [@"retweeted"] boolValue];
+        
     }
     
     return self;

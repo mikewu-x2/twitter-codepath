@@ -26,6 +26,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *isRetweetedImage;
+@property (weak, nonatomic) IBOutlet UIImageView *isFavoritedImage;
+
 @end
 
 @implementation TweetCell
@@ -70,7 +73,14 @@
     self.userHandleLabel.text = user.screenname;
 
     self.dateLabel.text = [tweet.createdAt shortTimeAgoSinceNow];
-
+    
+    if (tweet.isUserRetweet) {
+        [self.isRetweetedImage setImage:[UIImage imageNamed:@"retweet_active"]];
+    }
+    
+    if (tweet.isUserFave) {
+        [self.isFavoritedImage setImage:[UIImage imageNamed:@"favorite_active"]];
+    }
 
 }
 

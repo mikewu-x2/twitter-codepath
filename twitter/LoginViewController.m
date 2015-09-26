@@ -21,7 +21,11 @@
         if (user != nil) {
             NSLog(@"Login view welcome %@", user.name);
             // Modally present tweets
-            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
+            
+            TweetsViewController *vc = [[TweetsViewController alloc] init];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nvc animated:YES completion:nil];
+            
         } else {
             // Present error
             NSLog(@"Login view fail");

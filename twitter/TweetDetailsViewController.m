@@ -89,6 +89,14 @@
     self.faveCountLabel.text = [tweet.faveCount stringValue];
     self.retweetCountLabel.text = [tweet.retweetCount stringValue];
     
+    if (tweet.isUserRetweet) {
+        [self.retweetActionView setImage:[UIImage imageNamed:@"retweet_active"]];
+    }
+    
+    if (tweet.isUserFave) {
+        [self.favoriteActionView setImage:[UIImage imageNamed:@"favorite_active"]];
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateStyle = NSDateFormatterShortStyle;
     formatter.timeStyle = NSDateFormatterShortStyle;
@@ -121,7 +129,6 @@
 
 - (void)handleReplyAction {
     NSLog(@"Reply");
-    //[TwitterClient sharedInstance];
     
     ComposeViewController *vc = [[ComposeViewController alloc] initWithTweet:self.tweet];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -133,6 +140,7 @@
     [[TwitterClient sharedInstance] retweet:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
         if (tweet) {
             NSLog(@"Retweet Success");
+            [self.retweetActionView setImage:[UIImage imageNamed:@"retweet_active"]];
         } else {
             NSLog(@"Retweet Error");
         }
@@ -144,6 +152,7 @@
     [[TwitterClient sharedInstance] addFavorite:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
         if (tweet) {
             NSLog(@"Fave Success");
+            [self.favoriteActionView setImage:[UIImage imageNamed:@"favorite_active"]];
         } else {
             NSLog(@"Fave Error");
         }

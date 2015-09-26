@@ -106,6 +106,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="7xV-zw-RVb" id="mUE-vF-9ro"/>
+                <outlet property="isFavoritedImage" destination="qA5-8c-cxj" id="R0t-xk-EXz"/>
+                <outlet property="isRetweetedImage" destination="3QO-Lt-nHy" id="L7w-ni-3wh"/>
                 <outlet property="profileImage" destination="5bm-gX-i01" id="hij-f9-NPr"/>
                 <outlet property="retweetImageHeightConstraint" destination="vjK-h7-RGJ" id="nog-Cp-otP"/>
                 <outlet property="retweetImageTopConstraint" destination="rvW-Be-JCB" id="caM-lr-GYc"/>

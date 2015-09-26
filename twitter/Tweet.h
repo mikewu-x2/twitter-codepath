@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSNumber *retweetCount;
 @property (nonatomic, strong) NSNumber *faveCount;
 @property (nonatomic, strong) NSNumber *favoriteCount;
+@property (nonatomic) BOOL isUserFave;
+@property (nonatomic) BOOL isUserRetweet;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)dictionaries;
